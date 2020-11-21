@@ -1,0 +1,7 @@
+.App {
+    position: relative;
+  }
+  
+  .main{
+    min-height: calc(100vh - 3rem); /* 3rem is the height of the footer */
+  }

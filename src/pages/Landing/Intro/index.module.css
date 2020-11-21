@@ -1,0 +1,109 @@
+.section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent;
+    z-index: 1;
+}
+
+.section::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: var(--light-bg);
+}
+
+.content .title {
+    font-size: 3rem;
+    font-family: var(--title-font);
+    font-weight: 600;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+}
+
+.content .tagline {
+    margin: 1.2rem 0;
+    font-size: 1.5rem;
+    font-family: var(--title-font);
+    font-weight: 600;
+}
+
+.topics{
+    transition: transform .5s;
+}
+.topics:hover{
+    transform: scale(1.25);
+}
+
+.webd:hover{
+    color:red
+}
+.ml:hover{
+    color:blue;
+}
+.algo:hover{
+    color:green;
+}
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.iconContainer {
+    margin-top: 1.5rem;
+    margin-right: 2rem;
+    height: 2.5rem;
+    transform: scale(1);
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+.iconContainer:hover{
+    transform: scale(1.15);
+    fill: black;
+}
+
+.iconContainer:last-child {
+    margin-right: 0;
+}
+
+.icon {
+    fill: var(--gray-dark);
+}
+
+@media screen and (max-width: 900px) {
+    .content .title {
+        font-size: 2rem;
+        letter-spacing: normal;
+    }
+    .content .tagline {
+        font-size: 1.25rem;
+    }
+    .iconContainer {
+        height: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .iconContainer {
+        height: 1.75rem;
+    }
+}
+
+.particle{
+    position: absolute;
+}
