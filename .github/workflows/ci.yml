@@ -21,9 +21,8 @@ jobs:
       - run: npm run build
 
       - name: Build the image and push to docker hub.
-      - run: |
+        run: |
             docker build . -t revoly/portfolio
             docker login -u revoly -p ${{ secrets.DOCKER_PASS}} 
             docker push revoly/portfolio
             docker logout
-            
