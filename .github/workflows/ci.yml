@@ -1,0 +1,29 @@
+name: CI Pipeline
+
+on: 
+  push: 
+    branches:
+      - master
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Transpile typescript to Javascript and build
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.2.0'
+      - run: node -v 
+      - run: node install
+      - run: npm run build
+
+      - name: Build the image and push to docker hub.
+      - run: |
+            docker build . -t revoly/portfolio
+            docker login -u revoly -p ${{ secrets.DOCKER_PASS}} 
+            docker push revoly/portfolio
+            docker logout
+            
