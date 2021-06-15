@@ -8,9 +8,9 @@ import Global from '../../../styles/global.module.css'
 import Classes from './index.module.css'
 
 
-const btn1: ILinkButton={name: "Web Development", buttonLink:{ type: Linktype.Internal, link:"/" }};
+const btn1: ILinkButton={name: "Backend Dev/Ops", buttonLink:{ type: Linktype.Internal, link:"/" }};
 
-const btn2: ILinkButton={name: "Machine Learning", buttonLink:{ type: Linktype.Internal, link:"/" }};
+const btn2: ILinkButton={name: "Software Development", buttonLink:{ type: Linktype.Internal, link:"/" }};
 
 const btn3: ILinkButton= {name: "Algorithms", buttonLink:{ type: Linktype.Internal, link:"/" }}
                         

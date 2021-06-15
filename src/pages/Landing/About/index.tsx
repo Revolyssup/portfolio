@@ -18,8 +18,7 @@ function About(){
                         <h2 className={Classes.title}>ABOUT</h2>
                         <div className={Classes.aboutContent}>
                             <p className={Classes.contentP}>
-                                I am a full stack web developer in progress. I am generally more interested in Backend than front end. Due to my greater interests in 
-                                Linear algebra, Calculus and Statistics, I am currently understanding Machine learning and Neural networks in depth. Other than that, I love
+                                I am a full stack web developer in progress. I am generally more interested in Backend than front end. Proficient in Go/Typescript. Other than that, I love
                                 implementing new Data structures and algorithms and I believe in optimization. I ocassionally solve questions on codeforces or leetcode.
                             </p>
                         </div>
@@ -71,7 +70,8 @@ function About(){
                                     <ul>
                                         <li>Microservices architecture</li>
                                         <li>Docker for containerisation</li>
-                                        <li>Docker swarm for orchestration</li>
+                                        <li>Docker swarm </li>
+                                        <li>Kubernetes</li>
                                         {/* <li>Traefik as reverse proxy</li>
                                         <li>NGINX for serving static sites like this</li>
                                         <li>Grafana and Prometheus for monitoring</li> */}

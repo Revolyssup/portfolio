@@ -8,16 +8,16 @@ import './index.module.css'
 
 const btnleft: ILinkButton[]=[
     {name: "Home", buttonLink:{ type: Linktype.Internal, link:"/" }},
-    {name:"About", buttonLink:{type: Linktype.Internal_SAME_PAGE,link:"about"}}
+    {name:"About", buttonLink:{type: Linktype.Internal_SAME_PAGE,link:"about"}},
+    {name:"Projects", buttonLink:{type: Linktype.Internal_SAME_PAGE,link:"projects"}}
 ];
 
 const btnright: ILinkButton[]=[
-    {name: "Sagacious", buttonLink:{ type: Linktype.External, link:"https://sagacious.dev/" }},
     {name: "Blog", buttonLink:{ type: Linktype.Internal_SAME_PAGE, link:"#about" }}
 ]
 
 //MAIN COMPONENT
-function Navbar(){
+function    Navbar(){
     const [navClasses,setNavClasses]=useState([Classes.nav]);
     const [mobileNavClasses,setMobileNavClasses]=useState([Classes.mobile]);
 

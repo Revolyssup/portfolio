@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import Classes from './index.module.css'
 import Intro from './Intro'
 import About from './About'
+import Projects from './Projects'
 import {animateScroll as Scroll} from 'react-scroll'
 
 import {ReactComponent as ScrollUp} from '../../assets/images/uparrow.svg'
@@ -17,6 +18,7 @@ function Landing(){
         <Fragment>
             <Intro/>
             <About/>
+            <Projects/>
             <div className={Classes.scrollBtn} onClick={scrollUp}>
                 <ScrollUp fill="purple"/>
             </div>
