@@ -9,7 +9,12 @@ import Global from '../../../styles/global.module.css'
 
 const projects: ICard[] = [
     {
-        text: " Discoded - GoGlot(Containerized Code runner)+Cache+Discord bot",
+        text: " GoGlot: A multi-language code runner written in Go.",
+        img: require("../../../assets/images/Golang.png").default,
+        link: { type: Linktype.External, link: "https://github.com/Revolyssup/discoded" }
+    },
+    {
+        text: " Discoded: GoGlot + Code Caching + Code editor + Discord bot",
         img: require("../../../assets/images/discoded.png").default,
         link: { type: Linktype.External, link: "https://github.com/Revolyssup/discoded" }
     },
