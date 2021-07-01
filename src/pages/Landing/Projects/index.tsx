@@ -16,7 +16,7 @@ const projects: ICard[] = [
     {
         text: " Discoded: GoGlot + Code Caching + Code editor + Discord bot",
         img: require("../../../assets/images/discoded.png").default,
-        link: { type: Linktype.External, link: "https://github.com/Revolyssup/discoded" }
+        link: { type: Linktype.External, link: "https://discoded.centralindia.cloudapp.azure.com/" }
     },
     {
         text: "Monkey- A small interpreted programming language in go",
