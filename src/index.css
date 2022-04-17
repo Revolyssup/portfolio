@@ -23,10 +23,10 @@ html, body {
   :root {
     --gray: #dbdbdb;
     --gray-dark: #979797;
-    --black-light: #1c1c1c;
+    --black-light: #061d4e;
     --menu-black: #32373C;
     --white: #eaeaea;
-    --light-bg: linear-gradient(240deg, #FFFFFF 0%, var(--gray) 100.28%);
+    --light-bg: linear-gradient(240deg, #3399d4 0%, var(--gray) 100.28%);
   
     --title-font: 'Open Sans', sans-serif;
     --text-font: 'Roboto', sans-serif;

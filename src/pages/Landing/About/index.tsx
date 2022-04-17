@@ -18,8 +18,9 @@ function About(){
                         <h2 className={Classes.title}>ABOUT</h2>
                         <div className={Classes.aboutContent}>
                             <p className={Classes.contentP}>
-                                I am a full stack web developer in progress. I am generally more interested in Backend than front end. Proficient in Go/Typescript. Other than that, I love
-                                implementing new Data structures and algorithms and I believe in optimization. I ocassionally solve questions on codeforces or leetcode.
+                                I am a Software Engineer currenly focused in cloud native ecosystem. My primary interests range from networking, Operating systems,
+                                eBPF, Distributed systems, Databases and cloud. I have over an year worth of experience working with Golang writing kubernetes operators,
+                                service mesh adapters and more.  
                             </p>
                         </div>
 
