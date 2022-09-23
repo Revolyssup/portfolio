@@ -8,7 +8,7 @@ import Global from '../../../styles/global.module.css'
 import Classes from './index.module.css'
 
 
-const btn1: ILinkButton={name: "Software engineer working on cloud native tools.", buttonLink:{ type: Linktype.Internal, link:"/" }};
+const btn1: ILinkButton={name: "Software engineer working on cloud native tools.", buttonLink:{ type: Linktype.Internal, link:"/#about" }};
 const btn2: ILinkButton={name: "Maintainer @Layer5", buttonLink:{ type: Linktype.External, link:"https://github.com/layer5io/" }};
                         
 function Intro(){
