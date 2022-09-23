@@ -56,40 +56,30 @@ function About(){
                             {/* Stack Block */}
                             <div className={Classes.stackBlock}>
                                 {/* Frontend Block */}
-                                <div className={Classes.block}>
-                                    <h3 className={Classes.tag}>Frontend</h3>
-                                    <ul>
-                                        <li>React - Used for creating the UI</li>
-                                        <li>Redux - Used for managing the state</li>
-                                        <li>Socket.io - For Reliable Websocket communication</li>
-                                    </ul>
-                                </div>
-
                                 {/* Backend Block */}
                                 <div className={Classes.block}>
-                                    <h3 className={Classes.tag}>Backend</h3>
+                                    <h3 className={Classes.tag}>Language and Tooling</h3>
                                     <ul>
-                                        <li>Microservices architecture</li>
-                                        <li>Docker for containerisation</li>
-                                        <li>Docker swarm </li>
+                                        <li>Golang</li>
+                                        <li>Docker</li>
                                         <li>Kubernetes</li>
-                                        {/* <li>Traefik as reverse proxy</li>
-                                        <li>NGINX for serving static sites like this</li>
-                                        <li>Grafana and Prometheus for monitoring</li> */}
+                                        <li>Service Mesh(Istio/Traefik/Kuma/Nginx and more)</li>
+                                        <li>Service Mesh Management(Meshery)</li>
+                                        <li>Grafana and Prometheus for monitoring</li>
                                     </ul>
                                     <p className={Classes.contentP}>
-                                        And many more depending upon the needs of a service.<br />
-                                   
+                                        And many more...<br />      
                                 </p>
                                 </div>
 
                                 {/* Devops Block */}
                                 <div className={Classes.block}>
-                                    <h3 className={Classes.tag}>DevOps</h3>
-                                    <p className={Classes.contentP}>
-                                        Github actions
-                                    <br />
-                                </p>
+                                    <h3 className={Classes.tag}>CI/CD</h3>
+                                    <ul>
+                                        <li>Github actions</li>
+                                        <li>Argo</li>
+                                        <li>FluxCD</li>
+                                    </ul>
                                 </div>
                             </div>
                             <h2 className={Classes.tag}>
