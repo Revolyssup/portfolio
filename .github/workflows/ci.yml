@@ -33,4 +33,4 @@ jobs:
           username: root
           passphrase: ${{ secrets.PASS_PHRASE }}
           key: ${{ secrets.KEY }}
-          script: ~/.restart.sh
+          script: ~/restart.sh
