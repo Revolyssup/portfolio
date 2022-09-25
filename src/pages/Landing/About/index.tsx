@@ -20,7 +20,8 @@ function About(){
                             <p className={Classes.contentP}>
                                 I am a Software Engineer currenly focused in cloud native ecosystem. My primary interests range from networking, Operating systems,
                                 eBPF, Distributed systems, Databases and cloud. I have over an year worth of experience working with Golang writing kubernetes operators,
-                                service mesh adapters and more.  
+                                service mesh adapters and more. I am also a maintainer at Layer5/Meshery, which comes under CNCF sandbox. Currently Layer5 also happens to be the place of my employment.
+                                I am passionate about open source and everything cloud native.
                             </p>
                         </div>
 

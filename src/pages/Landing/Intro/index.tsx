@@ -9,8 +9,6 @@ import Classes from './index.module.css'
 
 
 const btn1: ILinkButton={name: "Software engineer working on cloud native tools.", buttonLink:{ type: Linktype.Internal, link:"/#about" }};
-const btn2: ILinkButton={name: "Maintainer @Layer5", buttonLink:{ type: Linktype.External, link:"https://github.com/layer5io/" }};
-                        
 function Intro(){
     return(
         <section className={Classes.section}>
@@ -19,7 +17,6 @@ function Intro(){
                     <h1 className={Classes.title}> Ashish Tiwari</h1>
                     <h2 className={Classes.tagline}>
                     <span><LinkButton {...btn1} className={`${Classes.topics} ${Classes.webd}`} /></span>
-                    <span><LinkButton {...btn2} className={`${Classes.topics} ${Classes.webd}`} /></span>
                     </h2>
                     <div className={Classes.icons}>
                     <a
