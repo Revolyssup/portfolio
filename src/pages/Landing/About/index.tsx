@@ -64,6 +64,7 @@ function About(){
                                         <li>Docker</li>
                                         <li>Kubernetes</li>
                                         <li>Service Mesh(Istio/Traefik/Kuma/Nginx and more)</li>
+                                        <li>Envoy/xDS APIs</li>
                                         <li>Service Mesh Management(Meshery)</li>
                                         <li>Grafana and Prometheus for monitoring</li>
                                     </ul>
