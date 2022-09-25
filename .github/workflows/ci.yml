@@ -31,5 +31,6 @@ jobs:
         with:
           host: revoly.dev
           username: root
+          passphrase: ${{ secrets.PASS_PHRASE }}
           key: ${{ secrets.KEY }}
           script: ~/.restart.sh
