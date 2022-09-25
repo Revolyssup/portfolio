@@ -9,7 +9,7 @@ import './index.module.css'
 const btnleft: ILinkButton[]=[
     {name: "Home", buttonLink:{ type: Linktype.Internal, link:"/" }},
     {name:"About", buttonLink:{type: Linktype.Internal_SAME_PAGE,link:"about"}},
-    {name:"Projects", buttonLink:{type: Linktype.Internal_SAME_PAGE,link:"projects"}}
+    {name:"Personal Projects", buttonLink:{type: Linktype.Internal_SAME_PAGE,link:"projects"}}
 ];
 
 const btnright: ILinkButton[]=[
