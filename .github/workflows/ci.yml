@@ -26,3 +26,10 @@ jobs:
             docker login -u revoly -p ${{ secrets.DOCKER_PASS}} 
             docker push revoly/portfolio
             docker logout
+      - name: Run deploy script on the server
+        uses: appleboy/ssh-action@master
+        with:
+          host: revoly.dev
+          username: root
+          key: ${{ secrets.KEY }}
+          script: ~/.restart.sh
