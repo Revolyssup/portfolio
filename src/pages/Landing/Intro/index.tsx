@@ -21,7 +21,7 @@ function Intro(){
                     <div className={Classes.icons}>
                     <a
                         className={Classes.iconContainer}
-                        href="https://twitter.com/revolyssup96"
+                        href="https://twitter.com/leftnotcentre"
                         target="_blank"
                         rel="noopener noreferrer">
                         <Twitter className={Classes.icon} />
