@@ -13,7 +13,7 @@ const btnleft: ILinkButton[]=[
 ];
 
 const btnright: ILinkButton[]=[
-    {name: "Blog", buttonLink:{ type: Linktype.Internal_SAME_PAGE, link:"#about" }}
+    {name: "Blog(Coming soon)", buttonLink:{ type: Linktype.Internal_SAME_PAGE, link:"#about" }}
 ]
 
 //MAIN COMPONENT
