@@ -23,6 +23,11 @@ const projects: ICard[] = [
         img: require("../../../assets/images/monkey.png").default,
         link: { type: Linktype.External, link: "https://github.com/Revolyssup/monkey" }
     },
+    {
+        text: "BargeDB - Raft based consensus layer for key-value stores (In progress)",
+        img: require("../../../assets/images/barge.jpeg").default,
+        link: { type: Linktype.External, link: "https://github.com/Revolyssup/bargedb" }
+    },
 
 ]
 

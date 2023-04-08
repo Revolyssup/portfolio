@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://revoly.dev/blogs/posts/kubernetes-api-server/</loc>
+    <lastmod>2023-04-04T17:24:55+05:30</lastmod>
+  </url><url>
+    <loc>https://revoly.dev/blogs/</loc>
+    <lastmod>2023-04-04T17:24:55+05:30</lastmod>
+  </url><url>
+    <loc>https://revoly.dev/blogs/tags/kubernetes/</loc>
+    <lastmod>2023-04-04T17:24:55+05:30</lastmod>
+  </url><url>
+    <loc>https://revoly.dev/blogs/posts/</loc>
+    <lastmod>2023-04-04T17:24:55+05:30</lastmod>
+  </url><url>
+    <loc>https://revoly.dev/blogs/tags/</loc>
+    <lastmod>2023-04-04T17:24:55+05:30</lastmod>
+  </url><url>
+    <loc>https://revoly.dev/blogs/categories/</loc>
+  </url>
+</urlset>

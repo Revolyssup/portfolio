@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Blogs</title>
+    <link>https://revoly.dev/blogs/tags/</link>
+    <description>Recent content in Tags on Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Apr 2023 17:24:55 +0530</lastBuildDate><atom:link href="https://revoly.dev/blogs/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kubernetes</title>
+      <link>https://revoly.dev/blogs/tags/kubernetes/</link>
+      <pubDate>Tue, 04 Apr 2023 17:24:55 +0530</pubDate>
+      
+      <guid>https://revoly.dev/blogs/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on Blogs</title>
+    <link>https://revoly.dev/blogs/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Apr 2023 17:24:55 +0530</lastBuildDate><atom:link href="https://revoly.dev/blogs/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring Kubernetes with OpenAPI</title>
+      <link>https://revoly.dev/blogs/posts/kubernetes-api-server/</link>
+      <pubDate>Tue, 04 Apr 2023 17:24:55 +0530</pubDate>
+      
+      <guid>https://revoly.dev/blogs/posts/kubernetes-api-server/</guid>
+      <description>If you were to GET Kubernetes API server on /openapi/v2, it will return with a big JSON file that describes the current state of its API.
+JsonSchemas, Swagger and OpenAPI
+jsonschema is a declarative way of validating JSON documents. There are multiple drafts of jsonschema present all defined here. You can optionally pass a $schema field in your json describing exact draft version of jsonschema to use in order to validate the given JSON.</description>
+    </item>
+    
+  </channel>
+</rss>

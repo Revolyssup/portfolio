@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313'
+baseURL = 'https://revoly.dev/blogs'
 languageCode = 'en-us'
 title = 'Blogs'
 theme = "gokarna"

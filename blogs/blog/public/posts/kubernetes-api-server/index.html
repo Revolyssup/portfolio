@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Exploring Kubernetes with OpenAPI</title>
+    <meta name="description" content="We explore REST API provided by Kubernetes API server while using the response of /openapi/v2 as an index.">
+    <meta name="keywords" content='kubernetes'>
+
+    <meta property="og:url" content="https://revoly.dev/blogs/posts/kubernetes-api-server/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Exploring Kubernetes with OpenAPI">
+    <meta property="og:description" content="We explore REST API provided by Kubernetes API server while using the response of /openapi/v2 as an index.">
+    <meta property="og:image" content="">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Exploring Kubernetes with OpenAPI">
+    <meta name="twitter:description" content="We explore REST API provided by Kubernetes API server while using the response of /openapi/v2 as an index.">
+    <meta property="twitter:domain" content="https://revoly.dev/blogs/posts/kubernetes-api-server/">
+    <meta property="twitter:url" content="https://revoly.dev/blogs/posts/kubernetes-api-server/">
+    <meta name="twitter:image" content="">
+
+    
+    <link rel="canonical" href="https://revoly.dev/blogs/posts/kubernetes-api-server/" />
+
+    <link rel="stylesheet" type="text/css" href="https://revoly.dev/blogs/css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://revoly.dev/blogs/css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://revoly.dev/blogs/css/dark.css">
+
+    <script src="https://revoly.dev/blogs/js/svg-injector.min.js"></script>
+    <script src="https://revoly.dev/blogs/js/feather-icons.min.js"></script>
+    <script src="https://revoly.dev/blogs/js/main.js"></script>
+
+    
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://revoly.dev/blogs">Blogs</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://revoly.dev/blogs/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://revoly.dev/blogs/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/Revolyssup"><span data-feather='github'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://revoly.dev/blogs/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://revoly.dev/blogs/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/Revolyssup"><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Exploring Kubernetes with OpenAPI</h1>
+        <small role="doc-subtitle">We explore REST API provided by Kubernetes API server while using the response of /openapi/v2 as an index.</small>
+        <p class="post-date">
+            April 4, 2023
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://revoly.dev/blogs/tags/kubernetes">kubernetes</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p>If you were to GET Kubernetes API server on <code>/openapi/v2</code>, it will return with a big JSON file that describes the current state of its API.</p>
+<p>JsonSchemas, Swagger and OpenAPI</p>
+<p>jsonschema is a declarative way of validating JSON documents. There are multiple drafts of jsonschema present all defined <a href="https://json-schema.org/">here</a>.  You can optionally pass a <code>$schema</code> field in your json describing exact draft version of jsonschema to use in order to validate the given JSON. As JSON natively does not have rich data type support like <code>int32</code> <code>int64</code> <code>byte</code> etc, <code>format</code> field can be used alongside <code>type</code> to have better primitive data types. This is useful specially in statically typed languages.</p>
+<p>Swagger is a specification that defines a document describing the overall state of a REST API containing all it’s endpoints (in <code>paths</code>). It uses different drafts of Jsonschema to describe the structure of it’s responses(in <code>definitions</code>). Swagger was called swagger up until 2.0. Swagger 3.0 is also known as OpenAPI. Therefore OpenAPIV2 is used sometimes for Swagger 2.0. The document returned by <code>/openapi/v2</code> has <code>swagger: 2.0</code> as a top level field.</p>
+<p>Kubernetes uses OpenAPI with few extensions described <a href="https://github.com/kubernetes/kubernetes/blob/master/api/openapi-spec/README.md">here</a>.</p>
+<p>One use of this endpoint inside kubectl is for client side schema validation. The helper function which intialises the verifier is present in cli-runtime <a href="https://github.com/kubernetes/cli-runtime/blob/88d2de9dd3fd0b70d8483d5b5b386bd76d8dbab6/pkg/resource/query_param_verifier.go#L30">here</a>. The returned struct internally uses OpenAPISchema() method which returns the OpenAPI doc. This method is defined on OpenAPISchemaInterface which is defined in <a href="https://github.com/kubernetes/client-go/blob/04ef61f72b7bc5ae6efef4e4dc0001746637fdb3/discovery/discovery_client.go#L146">client-go/discovery_client</a> and DiscoveryClient also provides an implementation of this interface <a href="https://github.com/kubernetes/client-go/blob/04ef61f72b7bc5ae6efef4e4dc0001746637fdb3/discovery/discovery_client.go#L611">here</a>  which requests <code>/openapi/v2.</code></p>
+<p>The complete OpenAPI specification for v2 can be found <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#pathsObject">here</a>. Mainly we are going to focus of <code>definitions</code> Object. <code>paths</code> Objects contains the description of any given REST endpoint and the schema of its response. Usually given the fact that the objects in Response have large schemas, these schemas are kept separately with a unique key under <code>defintions</code> object and are referenced with <code>$ref</code> in <code>definitions</code></p>
+<p>We are going to look at some of the keys in this <code>definition</code> object and navigate to code from where these definitions come from. The OpenAPI schema is usually laid out so that code generation is possible for any client given the schema. Therefore just looking at the schema gives a great deal of insights to where the Code is present which generated the schema.</p>
+<p>It is recommended that you read Iximiuz blog exploring different kubernetes components like api, api-machinery, client-go, etc and their significance. I will not repeat something that has already been said by Ivancho in the most pedagogical way possible.</p>
+<p>Before going further, I’d like to discuss GVR and GVK. Skip this if you have already read Iximiuz.</p>
+<p>GVR: It is a tupple of Group Version ResourceName used to uniquely identify a resource(or even subresource) in kubernetes API server. Any resource that is accessed by kubernetes has a corresponding GVR. You can play around with <code>kubectl</code> with <code>-v6</code> flag (verbose mode) to see all the API calls it makes. Any endpoint that it makes a call to has a corresponding GVR. Even when you do <code>kubectl exec</code> , you are accessing <code>exec</code> subresource defined under another resource (mostly <code>pod</code>). <code>[kubectl exec</code> sends over a POST request to this subresource](<a href="https://github.com/kubernetes/kubectl/blob/65639830b2b0e5f6b254d05b911b7676eb7757d2/pkg/cmd/exec/exec.go#L359)">https://github.com/kubernetes/kubectl/blob/65639830b2b0e5f6b254d05b911b7676eb7757d2/pkg/cmd/exec/exec.go#L359)</a>. You can confirm this also by performing exec with verbose flag. Below is the screenshot:</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/efa43bb0-1e2c-470f-8b18-04f4da0c5116/Screenshot_2023-04-04_at_4.01.35_PM.png" alt="Screenshot 2023-04-04 at 4.01.35 PM.png"></p>
+<p>The last 101 indicates setting up of a bidirectional stream from kubectl. In the below screenshot you can see the definition for the POST on this subresource defines the query params:</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57cc7c6d-813b-4eeb-9dd4-be06fe906b2d/Screenshot_2023-04-04_at_4.23.46_PM.png" alt="Screenshot 2023-04-04 at 4.23.46 PM.png"></p>
+<p>In Meshery, we have a component Meshsync which also establishes a bidirectional stream with kube api server using the same mechanism. <a href="https://github.com/meshery/meshsync/blob/70f611673b902c314bae8888ee976147de7b0d24/meshsync/exec.go#L120">Check it out here.</a> Here the only difference is that the request and responses are a little more asynchronous and go through a message bus which in our case is NATS. Both MeshSync and Kubectl use this package to handle setting up <a href="https://github.com/kubernetes/client-go/blob/master/tools/remotecommand/remotecommand.go">bidirectional streaming on POST</a></p>
+<p>GVK:  Restmapper present in <a href="https://github.com/kubernetes/apimachinery/blob/master/pkg/api/meta/restmapper.go">apimachinery</a> makes a mapping from Resource→Kind</p>
+<p>From Iximiuz:</p>
+<blockquote>
+<p>Turns out, in Kubernetes, a <em><strong>kind</strong></em>
+ is the name of an <em><strong>object schema</strong></em>
+. Like the one you&rsquo;d typically describe using a <a href="https://json-schema.org/">JSON schema</a>
+ vocabulary. In other words, a <em>kind</em>
+ refers to a particular data structure, i.e. a certain composition of attributes and properties.</p>
+</blockquote>
+<h2 id="what-are-the-keys-in-definitions">What are the keys in definitions?</h2>
+<ul>
+<li>In kubernetes, we provide. <code>apiVersion</code> as <code>&lt;group&gt;/&lt;version&gt;</code> where group is DNS formatted name eg: <a href="http://meshery.layer5.io/">meshery.layer5.io</a></li>
+<li>In the key, group is formatted in reverse-DNS order such that clients can do prefix based matching therefore the GVR format results in <code>&lt;reverse group&gt;.&lt;version&gt;.&lt;resourcename&gt;</code> . For eg: <code>io.layer5.meshery.v1alpha1.Broker</code></li>
+<li>For Resources defined as structs across kubernetes repo, the reverse DNS name is <code>io.k8s.&lt;path to the group in repo&gt;</code></li>
+<li>For instance, for pod the key is:</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/84d4d7be-d5fb-4d6e-93d7-686b1a444e01/Screenshot_2023-04-04_at_4.43.00_PM.png" alt="Screenshot 2023-04-04 at 4.43.00 PM.png"></p>
+<p>It means the Pod struct is inside api repo in core(groupname)/v1(version) directory. <a href="https://github.com/kubernetes/api/tree/master/core/v1">Here</a>.</p>
+<p>So is the case with all other definitions like:</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7690da01-0f79-414b-b276-5fd41247cd9a/Screenshot_2023-04-04_at_4.45.57_PM.png" alt="Screenshot 2023-04-04 at 4.45.57 PM.png"></p>
+<p>This struct is in apimachinery pkg/api/resources.</p>
+<p>You might think that to see and follow how kubectl gets the list of all resources it has, you can perform <code>kubectl api-resources -v6</code> but it calls <code>/apis</code> which only returns the list of known Kubernetes Object. Kubernetes Object have to have more than just <code>kind</code> like <code>apiVersion</code> and <code>[metadata.name](http://metadata.name)</code> or <code>metadata.namespace.</code></p>
+<p>//AI wrote the below stuff</p>
+<p>This JSON file contains information about the Kubernetes API endpoints, their methods, parameters, and responses. It can be used by API clients to generate client-side code and automate interactions with the Kubernetes API server. This file is also used by Kubernetes tools, like <code>kubectl</code>, to validate CLI commands and provide auto-completion for API resources.</p>
+
+        </p>
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+</div>
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-the-keys-in-definitions">What are the keys in definitions?</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2023 </span>
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/526avijitgupta/gokarna">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>
