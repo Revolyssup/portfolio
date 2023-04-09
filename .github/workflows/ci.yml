@@ -42,7 +42,7 @@ jobs:
         run: cd blogs/blog;sudo apt install hugo; hugo
       - name: Build the image and push to docker hub.
         run: |
-            cd blogs;blog
+            cd blogs/blog
             docker build . -t revoly/blog
             docker login -u revoly -p ${{ secrets.DOCKER_PASS}} 
             docker push revoly/blog
