@@ -13,7 +13,7 @@ const btnleft: ILinkButton[]=[
 ];
 
 const btnright: ILinkButton[]=[
-    {name: "Blog", buttonLink:{ type: Linktype.External, link:"https://revoly.dev/blogs" }}
+    {name: "Blog(In progress)", buttonLink:{ type: Linktype.External, link:"https://revoly.dev/blogs" }}
 ]
 
 //MAIN COMPONENT

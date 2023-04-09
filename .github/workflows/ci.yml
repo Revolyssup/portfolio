@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  build:
+  build-portfolio:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -34,3 +34,26 @@ jobs:
           passphrase: ${{ secrets.PASS_PHRASE }}
           key: ${{ secrets.KEY }}
           script: ~/restart.sh 
+  build-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with: 
+          submodules: true
+      - name: Build hugo
+        run: cd blogs/blog;sudo apt install hugo; hugo
+      - name: Build the image and push to docker hub.
+        run: |
+            cd blogs;blog
+            docker build . -t revoly/blog
+            docker login -u revoly -p ${{ secrets.DOCKER_PASS}} 
+            docker push revoly/blog
+            docker logout
+      - name: Run deploy script on the server
+        uses: appleboy/ssh-action@master
+        with:
+          host: revoly.dev
+          username: root
+          passphrase: ${{ secrets.PASS_PHRASE }}
+          key: ${{ secrets.KEY }}
+          script: ~/restart.sh #TODO: Split this script 
