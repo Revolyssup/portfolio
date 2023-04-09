@@ -1,8 +1,6 @@
 #!/bin/bash
-docker stop "$(docker ps -a -q)"
-docker rm "$(docker ps -a -q)"	
-echo "all containers deleted. Recreating with fresh image"
+CONTAINER_NAME="portfolio"
+docker stop $CONTAINER_NAME
+docker rm $CONTAINER_NAME	
 docker pull revoly/portfolio
-docker pull revoly/blogs
-docker container run -d -p 8080:80 revoly/portfolio
-docker container run -d -p 8081:80 revoly/blog
+docker container run --name $CONTAINER_NAME -d -p 8080:80 revoly/portfolio
