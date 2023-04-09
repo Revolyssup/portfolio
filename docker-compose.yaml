@@ -1,3 +1,4 @@
+#Not being used anymore as the host level nginx is used now for routing on VM
 version: '3'
 services:
   nginx:

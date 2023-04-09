@@ -4,6 +4,7 @@ date:  2023-04-04T17:24:55+05:30
 description: "We explore REST API provided by Kubernetes API server while using the response of /openapi/v2 as an index."
 tags: ["kubernetes"]
 type: post
+draft: true
 weight: 25
 showTableOfContents: true
 ---
