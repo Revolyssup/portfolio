@@ -18,9 +18,9 @@ function About(){
                         <h2 className={Classes.title}>ABOUT</h2>
                         <div className={Classes.aboutContent}>
                             <p className={Classes.contentP}>
-                                I am a Software Engineer currenly focused in cloud native ecosystem. My primary interests range from networking, Operating systems,
-                                eBPF, Distributed systems, Databases and cloud. I have over an year worth of experience working with Golang writing kubernetes operators,
-                                service mesh adapters and more. I am also a maintainer at Layer5/Meshery, which comes under CNCF sandbox. Currently Layer5 also happens to be the place of my employment.
+                                I am a Software Engineer currenly focused in cloud native ecosystem. My primary interests range from Networking, API Gateways, Service Meshes, Operating systems,
+                                eBPF, Distributed systems, Databases and cloud. I have over two years worth of experience working with Golang writing kubernetes operators,
+                                service mesh adapters and more. I am a maintainer @Meshery, which comes under CNCF sandbox. Currently my place of employment is API7 where I work primarily around APISIX, which is a cloud native API gateway.
                                 I am passionate about open source and everything cloud native.
                             </p>
                         </div>
